@@ -1,1 +1,1 @@
-# Código MATLAB para los Experimentos Numéricos de la Tesis de Maestría "Un enfoque alternativo para la aproximación de la pseudoinversa tensorial y su aplicación en el procesamiento de imágenes y videos" 
+# Código MATLAB para los Experimentos Numéricos de la Tesis de Maestría "*Un enfoque alternativo para la aproximación de la pseudoinversa tensorial y su aplicación en el procesamiento de imágenes y videos*" 
