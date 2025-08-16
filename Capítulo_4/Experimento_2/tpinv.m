@@ -1,4 +1,4 @@
-function [duracion,Xp]=tpinv(X)
+function [duracion,Xp] = tpinv(X)
 
     % Xp=tpinv(X) computes the tensor pseudoinverse of third-order tensor X
     %
