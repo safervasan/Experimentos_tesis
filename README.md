@@ -10,5 +10,5 @@ Este repositorio contiene el código MATLAB de los experimentos numéricos de la
 
 La tesis propone una nueva alternativa para estimar la pseudoinversa de un tensor bajo el c-producto reducido como operación de multiplicación de tensores. El repositorio considera cuatro carpetas las cuales contemplan los experimentos numéticos de los capítulos 2, 4, 5 y 6. Los cuales se describen acontinuación.
 
-# Capítulo 2
+### Capítulo 2
 
