@@ -12,7 +12,11 @@ Este repositorio contiene el código MATLAB de los experimentos numéricos de la
 
 - La carpeta *Capítulo_2* considera los archivos del experimento realizado para estimar la pseudoinversa matricial al emplear varios métodos iterativos presentes en la literatura.
 
-- El folder *Capítulo_4* contiene dos subcarpetas *Experimento_1* y *Experimento_2*. La primera de ellas realiza estimaciones de la inversa tensorial para diferentes valores de convergencia, mientras que la segunda realiza estimaciones de la solución $\boldsymbol{\mathcal{X}}$ del sistema multilineal $\boldsymbol{\mathcal{A}}\ast \boldsymbol{\mathcal{X}} = \boldsymbol{\mathcal{B}}$, para los tensores $\boldsymbol{\mathcal{A}}$ y $\boldsymbol{\mathcal{B}}$ con dimensiones apropiadas.
+- El folder *Capítulo_4* contiene dos subcarpetas *Experimento_1* y *Experimento_2*. La primera de ellas realiza estimaciones de la inversa tensorial para diferentes valores de convergencia en el método iterativo propuesto, mientras que la segunda realiza comparaciones de estimaciones de la solución $\boldsymbol{\mathcal{X}}$ del sistema multilineal $\boldsymbol{\mathcal{A}}\ast \boldsymbol{\mathcal{X}} = \boldsymbol{\mathcal{B}}$, para los tensores $\boldsymbol{\mathcal{A}}$ y $\boldsymbol{\mathcal{B}}$ con dimensiones apropiadas, al considerar algunos métodos presentes en la literatura y el método propuesto en la tesis.
+  
+- La *Carpeta_5* considera los archivos asociados a tres experimentos realizados en el Capítulo 5. El primero de ellos consiste en estimar la pseudoinversa tensorial al utilizar distintos valores de convergencia del método iterativo propuesto. El segundo experimento realiza una comparativa entre el método propuesto y varios métodos métodos presentes en la literatura. El último, realiza una evaluación del método iterativo propuesto y de otros presentes en la literatura el incrementar el número de caras frontales de un tensor tridimensional.
+
+- En el folder *Carpeta_6* se encuentran disponibles los archivos de cuatro experimentos realizados. El primero de ellos consiste en realizar una comparación al reducir ruido en tres imágenes a color entre el método iterativo propuesto y varios métodos presentes en la literatura. En el segundo de ellos, se elimina el ruido de un video a escala de grises por medio de varios métodos iterativos presentes en la literatura y se comprara con el propuesto. El tercer experimento, es completamente a
 
 
 
