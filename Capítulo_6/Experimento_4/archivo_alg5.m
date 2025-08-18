@@ -45,8 +45,6 @@ end
 
 clear; 
 
-ruta_carpeta = 'C:\Users\samue\OneDrive - TEC\UCR\Maestría - Métodos matemáticos y aplicaciones\Tesis\Tesis con Juan Pablo\Experimentos\Experimentos_tesis_definitivo\Capítulo 6\Experimento 4 Reducción de ruido en base de datos de imágenes\im1';
-
 disp('Algoritmo 5: reducción de ruido en las imágenes 4, 31 y 82')
 
 % Parámetros iniciales
@@ -85,8 +83,8 @@ lista = [4, 31, 82];
 figure(2)
 for j=1:3
     %Lectura de cada imagen
-    I = im2double(imread(['source_image_',num2str(j),'.jpg']));
-    C = im2double(imread(['observed_image_',num2str(j),'.jpg']));
+    I = im2double(imread(['imagen_fuente_',num2str(j),'.jpg']));
+    C = im2double(imread(['imagen_observada_',num2str(j),'.jpg']));
 
     % Tensor representation of images
     [m,n,p] = size(I);
@@ -118,8 +116,7 @@ for j=1:3
     subplot(3,3,3*(j-1)+3)
     imshow(Ie)
     title(['Imagen con ruido reducido ',num2str(lista(j))])
-    imwrite(Ie, fullfile(ruta_carpeta, ['Alg5_Estimation Image ',num2str(lista(j)),'.jpg']));
-
+    
     disp(' ')
 
     texto = ['Los valores ssim y el error cuadrático medio ' ...

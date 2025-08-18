@@ -41,10 +41,17 @@ error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
 
 
 %Estimación de la inversa método outerinv
-[pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-pseudo_out = c_traspuesta(pseudo_out);
-error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
 
+try
+    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
+
+    % Verificar que realmente devolvió algo numérico
+    if isnumeric(pseudo_out) && isnumeric(dur_out)
+        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    else
+        dur_out = NaN;
+        error_pseudo_out = NaN;
+    end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -86,8 +93,16 @@ error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
 error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
 
 %Estimación de la inversa método outerinv
-[pseudo_out, dur_out] = outerinv(A);
-error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+try
+    [pseudo_out, dur_out] = outerinv(A);
+
+    % Verificar que realmente devolvió algo numérico
+    if isnumeric(pseudo_out) && isnumeric(dur_out)
+        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    else
+        dur_out = NaN;
+        error_pseudo_out = NaN;
+    end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -129,9 +144,16 @@ info_pseudo_soto = whos("pseudo_soto");
 error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
 
 %Estimación de la inversa método outerinv
-[pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-pseudo_out = c_traspuesta(pseudo_out);
-error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+try
+    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
+
+    % Verificar que realmente devolvió algo numérico
+    if isnumeric(pseudo_out) && isnumeric(dur_out)
+        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    else
+        dur_out = NaN;
+        error_pseudo_out = NaN;
+    end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -172,8 +194,16 @@ error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
 error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
 
 %Estimación de la inversa método outerinv
-[pseudo_out, dur_out] = outerinv(A);
-error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+try
+    [pseudo_out, dur_out] = outerinv(A);
+
+    % Verificar que realmente devolvió algo numérico
+    if isnumeric(pseudo_out) && isnumeric(dur_out)
+        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    else
+        dur_out = NaN;
+        error_pseudo_out = NaN;
+    end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -215,9 +245,16 @@ error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
 error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
 
 %Estimación de la inversa método outerinv
-[pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-pseudo_out = c_traspuesta(pseudo_out);
-error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+try
+    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
+
+    % Verificar que realmente devolvió algo numérico
+    if isnumeric(pseudo_out) && isnumeric(dur_out)
+        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    else
+        dur_out = NaN;
+        error_pseudo_out = NaN;
+    end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
