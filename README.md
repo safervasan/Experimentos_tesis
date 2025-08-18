@@ -12,7 +12,7 @@ Este repositorio contiene el código MATLAB de los experimentos numéricos de la
 
 - La carpeta *Capítulo_2* considera los archivos del experimento realizado para estimar la pseudoinversa matricial al emplear varios métodos iterativos presentes en la literatura.
 
-- El folder *Capítulo_4* contiene dos subcarpetas *Experimento_1* y *Experimento_2*. La primera de ellas realiza estimaciones de la inversa tensorial para diferentes valores de convergencia, mientras que la segunda realiza estimaciones de la solución $X$ del sistema multilineal $A*X = B$, para los tensores $A$ y $B$ con dimensiones apropiadas.
+- El folder *Capítulo_4* contiene dos subcarpetas *Experimento_1* y *Experimento_2*. La primera de ellas realiza estimaciones de la inversa tensorial para diferentes valores de convergencia, mientras que la segunda realiza estimaciones de la solución $\boldsymbol{\mathcal{X}}$ del sistema multilineal $\boldsymbol{\mathcal{A}}\ast \boldsymbol{\mathcal{X}} = \boldsymbol{\mathcal{B}}$, para los tensores $\boldsymbol{\mathcal{A}}$ y $\boldsymbol{\mathcal{B}}$ con dimensiones apropiadas.
 
 
 
