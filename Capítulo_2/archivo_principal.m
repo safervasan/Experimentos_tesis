@@ -20,7 +20,7 @@ clc; clear; close all
 m = 500;
 n = 500;
 A = randn(m,n); %crea una matriz aleatoria de tamaño m x n con números en el intervalo [0,1]
-tol = 10^(-10);
+ tol = 10^(-10);
 
 % Cálculo de la pseudoinversa mediante el método de Newton - Schulz
 StartS = tic; 
@@ -42,36 +42,44 @@ StartH = tic;
 [lhiper,ehiper,phiper] = hiper(A,m,tol);
 EndH = toc(StartH);
 
+% Cálculo de la pseudoinversa mediante el método de Li y Li cuando s = 4
+StartL = tic; 
+[lli,eli,pli] = Li(A,m,tol);
+EndL = toc(StartL);
+
 texto = ['Tiempos de ejecución al estimar la pseudoinversa de la matriz de tamaño ', num2str(m), ' x ', num2str(n)];
 disp(texto)
 
 disp(' ')
 
-%Tabla resumen de tiempos de ejecución
-duracion1 = [EndS, EndC, EndK, EndH];
+% Tabla resumen de tiempos de ejecución
+duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Kaur', 'Hiperpotencias'};
+col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
 filas1 = {'Duración'};
 
-format long
+format short
 tabla_tiempos = array2table(duracion1, ...
                             'VariableNames', col1, ...
                             'RowNames',    filas1);
 
 disp(tabla_tiempos)
 
-% Graficación de errores e iteraciones.}
+% Graficación de errores e iteraciones
 figure(1)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)
+plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)
+plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
+plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
+plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
+plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
+
 xlabel('Iteraciones')
 ylabel('Errores')
 set(gca,'fontsize',12)
-title('Gráfica de iteraciones y errores (matriz A1 tamaño 500x500)')
-legend('Schulz', 'Chebyshev','Kaur','Potencia de orden 3', 'Location', 'northeast')
+title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
+legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+grid on
 hold off
 
 %% Estimación de la pseudoinversa matricial para la matriz A2 tamaño 1000x1500
@@ -101,36 +109,45 @@ StartH = tic;
 [lhiper,ehiper,phiper] = hiper(A,m,tol);
 EndH = toc(StartH);
 
+% Cálculo de la pseudoinversa mediante el método de Li y Li cuando s = 4
+StartL = tic; 
+[lli,eli,pli] = Li(A,m,tol);
+EndL = toc(StartL);
+
+
 texto = ['Tiempos de ejecución al estimar la pseudoinversa de la matriz de tamaño ', num2str(m), ' x ', num2str(n)];
 disp(texto)
 
 disp(' ')
 
-%Tabla resumen de tiempos de ejecución
-duracion1 = [EndS, EndC, EndK, EndH];
+% Tabla resumen de tiempos de ejecución
+duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Kaur', 'Hiperpotencias'};
+col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
 filas1 = {'Duración'};
 
-format long
+format short
 tabla_tiempos = array2table(duracion1, ...
                             'VariableNames', col1, ...
                             'RowNames',    filas1);
 
 disp(tabla_tiempos)
 
-% Graficación de errores e iteraciones.
+% Graficación de errores e iteraciones
 figure(2)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)
+plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)
+plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
+plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
+plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
+plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
+
 xlabel('Iteraciones')
 ylabel('Errores')
 set(gca,'fontsize',12)
-title('Gráfica de iteraciones y errores (matriz A2 tamaño 1000x1500)')
-legend('Schulz', 'Chebyshev','Kaur','Potencia de orden 3', 'Location', 'northeast')
+title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
+legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+grid on
 hold off
 
 %% Estimación de la pseudoinversa matricial para la matriz A3 tamaño 3000x2000
@@ -160,37 +177,43 @@ StartH = tic;
 [lhiper,ehiper,phiper] = hiper(A,m,tol);
 EndH = toc(StartH);
 
+% Cálculo de la pseudoinversa mediante el método de Li y Li cuando s = 4
+StartL = tic; 
+[lli,eli,pli] = Li(A,m,tol);
+EndL = toc(StartL);
+
+
 texto = ['Tiempos de ejecución al estimar la pseudoinversa de la matriz de tamaño ', num2str(m), ' x ', num2str(n)];
 disp(texto)
 
 disp(' ')
 
-%Tabla resumen de tiempos de ejecución
-duracion1 = [EndS, EndC, EndK, EndH];
+% Tabla resumen de tiempos de ejecución
+duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Kaur', 'Hiperpotencias'};
+col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
 filas1 = {'Duración'};
 
-format long
+format short
 tabla_tiempos = array2table(duracion1, ...
                             'VariableNames', col1, ...
                             'RowNames',    filas1);
 
 disp(tabla_tiempos)
 
-% Graficación de errores e iteraciones.
+% Graficación de errores e iteraciones
 figure(3)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)
+plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)
+plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
+plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
+plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
+plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
+
 xlabel('Iteraciones')
 ylabel('Errores')
 set(gca,'fontsize',12)
-title('Gráfica de iteraciones y errores (matriz A3 tamaño 3000x2000)')
-legend('Schulz', 'Chebyshev','Kaur','Potencia de orden 3', 'Location', 'northeast')
+title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
+legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+grid on
 hold off
-
-
-

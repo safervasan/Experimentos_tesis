@@ -25,7 +25,7 @@ errores = []; %lista de errores de aproximación de la matriz X_{k+1} con su pse
 while norm(A*B*A-A)>tol %condición de parada.
     errores = [errores,norm(A*B*A-A)]; 
     lista(i)=i;
-    X = B*(eye(m)+(eye(m)-A*B)+(eye(m)-A*B)^2+(eye(m)-A*B)^3); %va calculando la pseudoinversa.
+    X = B*(eye(m)+(eye(m)-A*B)+(eye(m)-A*B)^2+(eye(m)-A*B)^3+(eye(m)-A*B)^4+(eye(m)-A*B)^5); %va calculando la pseudoinversa.
     B=X;
     i = i+1;
 end
