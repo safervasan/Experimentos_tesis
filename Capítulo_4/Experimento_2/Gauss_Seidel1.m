@@ -1,5 +1,5 @@
 
-function [X, duracion] = Gauss_Seidel1(A, B, k, tol)
+function [X, duracion, iteraciones, errores_gaus] = Gauss_Seidel1(A, B, k, tol)
 
 % Esta función brinda una estimación al sistema multilineal A*X = B
 
@@ -21,6 +21,8 @@ function [X, duracion] = Gauss_Seidel1(A, B, k, tol)
     At = dct(A,[],3);
     %Tt = At/(2*c_norma2(At));
     p = size(A,3);
+    lista = [];
+    errores = [];
     for i = 1:p
         Dt=diag(diag(At(:,:,i)));
         Lt(:,:,i) = tril(At(:,:,i))-Dt;
@@ -29,8 +31,10 @@ function [X, duracion] = Gauss_Seidel1(A, B, k, tol)
         C(:,1,i) = mldivide(Lt(:,:,i)+Dt,B(:,1,i));
         X0(:,1,i) = zeros(size(A,1),1);
         for j = 1:k
+            lista(j) = j;
             Xt(:,1,i) = Tt(:,:,i)*X0(:,1,i) + C(:,1,i);
-            erk=c_norma2(Xt(:,1,i) - X0(:,1,i));
+            erk = c_norma2(Xt(:,1,i) - X0(:,1,i));
+            errores(j) = erk;
             if erk <= tol
                 break
             end
@@ -39,4 +43,6 @@ function [X, duracion] = Gauss_Seidel1(A, B, k, tol)
     end
     X = idct(Xt,[],3);
     duracion = toc;
+    iteraciones = lista;
+    errores_gaus = errores;
 end

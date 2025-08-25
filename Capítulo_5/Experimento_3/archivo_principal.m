@@ -26,22 +26,20 @@ tol = 1e-12;
 MaxIter = 1000;
 s = 10;
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
-
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 
 
 %Estimación de la inversa método outerinv
-
 try
     [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
 
@@ -80,17 +78,17 @@ n = 450;
 p = 200;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 
 %Estimación de la inversa método outerinv
 try
@@ -130,18 +128,17 @@ n = 450;
 p = 300;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
-info_pseudo_soto = whos("pseudo_soto");
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 
 %Estimación de la inversa método outerinv
 try
@@ -181,17 +178,17 @@ n = 450;
 p = 400;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 
 %Estimación de la inversa método outerinv
 try
@@ -232,17 +229,17 @@ n = 450;
 p = 500;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 
 %Estimación de la inversa método outerinv
 try

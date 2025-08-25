@@ -1,5 +1,5 @@
 
-function [duracion, inversa] = Soto2023(A,iterMax,s,tol)
+function [duracion, inversa, iteraciones, error_soto] = Soto2023(A,iterMax,s,tol)
 
 % Esta función permite estimar la inversa de un tensor
 
@@ -20,14 +20,20 @@ function [duracion, inversa] = Soto2023(A,iterMax,s,tol)
     tic;
     At = tCTranspose(A);
     alpha = tNorm2(At); 
-    X = (1/alpha^2)*At;    
+    X = (1/alpha^2)*At;
+    lista = [];
+    errores = [];
     for k = 1:iterMax
+        lista(k) = k;
         X = formulaIterative(X,A,s);
         er = tNorm2(tprod(tprod(A,X),A)-A);
+        errores(k) = er;
         if er < tol
             break
         end
     end    
     inversa = X;
     duracion = toc;
+    iteraciones = lista;
+    error_soto = errores;
 end

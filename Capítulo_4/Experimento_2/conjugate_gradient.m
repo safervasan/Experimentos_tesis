@@ -1,5 +1,5 @@
 
-function [X,Y,duracion] = conjugate_gradient(A, MaxIter,tol)
+function [X,Y,duracion,iteraciones, error_conj] = conjugate_gradient(A, MaxIter,tol)
 
 % Esta función permite estimar la pseudoinvers tensorial al determinar el
 % tensor X.
@@ -26,13 +26,16 @@ function [X,Y,duracion] = conjugate_gradient(A, MaxIter,tol)
     P0_1 = tprod3(AT,R0_1,AT)+R0_2; P0_2 = -tprod3(A,R0_2,A);
     Q0_1 = P0_1; Q0_2 = P0_2;
     k = 0;
+    lista = [];
+    errores = [];
     while k < MaxIter
+        lista(k+1) = k+1;
         ak = (tNorm2(R0_1)^2 + tNorm2(R0_2)^2)/(tNorm2(Q0_1)^2 + tNorm2(Q0_2)^2);
         X = X0 + ak*Q0_1;
         Y = Y0 + ak*Q0_2;
         R1_1 = A - tprod3(A,X,A);
         R1_2 = -X + tprod3(AT,Y,AT);
-        
+        errores(k+1) = tNorm2(R1_1)^2 + tNorm2(R1_2)^2;
         if tNorm2(R1_1)^2 + tNorm2(R1_2)^2 < tol
             break
         end
@@ -42,6 +45,9 @@ function [X,Y,duracion] = conjugate_gradient(A, MaxIter,tol)
         Q1_1 = P1_1 + bk*Q0_1; 
         Q1_2 = P1_2 + bk*Q0_2;
         R0_1 = R1_1; R0_2 = R1_2; Q0_1 = Q1_1; Q0_2 = Q1_2; X0 = X; Y0 = Y;
+        k = k+1;
     end 
-    duracion = toc;    
+    duracion = toc;
+    iteraciones = lista;
+    error_conj = errores;
 end

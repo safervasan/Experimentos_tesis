@@ -26,20 +26,41 @@ tol = 1e-12;
 MaxIter = 1000;
 s = 10;
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 info_pseudo_grad = whos("pseudo_grad");
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
@@ -75,20 +96,41 @@ n = 100;
 p = 15;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 info_pseudo_grad = whos("pseudo_grad");
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 [pseudo_out, dur_out] = outerinv(A);
@@ -123,20 +165,41 @@ n = 400;
 p = 15;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 info_pseudo_grad = whos("pseudo_grad");
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
@@ -172,20 +235,41 @@ n = 300;
 p = 15;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 info_pseudo_grad = whos("pseudo_grad");
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 [pseudo_out, dur_out] = outerinv(A);
@@ -221,20 +305,41 @@ n = 200;
 p = 15;
 A = randn(m,n,p);
 
-%Estimación pseudoinversa Algoritmo 4
-[dur_c,pseudo_c] = cpseudoinv(A,MaxIter,s,tol);
-error_pseudo_c = error_pseudoinversa_c(A,pseudo_c);
+%Estimación pseudoinversa Algoritmo 5
+[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto] = tpseudo(A,s,MaxIter,tol);
-error_pseudo_soto = error_pseudoinversa_t(A,pseudo_soto);
+[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad] = conjugate_gradient(A,MaxIter,tol);
-error_pseudo_grad = error_pseudoinversa_t(A,pseudo_grad);
+[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+error_pseudo_grad = e_cong(end);
 info_pseudo_grad = whos("pseudo_grad");
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 [pseudo_out, dur_out] = outerinv(c_traspuesta(A));

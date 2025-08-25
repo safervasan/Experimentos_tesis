@@ -1,5 +1,5 @@
 
-function [X, duracion] = Jacobi(A, B, k, tol)
+function [X, duracion, iteraciones, err_jac] = Jacobi(A, B, k, tol)
 
 % Esta función brinda una estimación al sistema multilineal A*X = B
 
@@ -19,7 +19,9 @@ function [X, duracion] = Jacobi(A, B, k, tol)
 
     tic;
     At = dct(A,[],3);
-    p = size(A,3);    
+    p = size(A,3);
+    lista = [];
+    errores = [];
     for i = 1:p
         Dt(:,:,i) = diag(diag(At(:,:,i)));
         Ft(:,:,i) = At(:,:,i) - diag(diag(At(:,:,i)));
@@ -27,7 +29,10 @@ function [X, duracion] = Jacobi(A, B, k, tol)
         C(:,1,i) = Dt(:,:,i)\B(:,1,i);
         X0(:,1,i) = zeros(size(A,1),1);
         for j = 1:k
+            lista(j) = j;
             Xt(:,1,i) = Tt(:,:,i)*X0(:,1,i)+C(:,1,i);
+            er = c_norma2(Xt(:,1,i)-X0(:,1,i));
+            errores(j) = er;
             if c_norma2(Xt(:,1,i)-X0(:,1,i)) <= tol
                 break
             end
@@ -36,4 +41,6 @@ function [X, duracion] = Jacobi(A, B, k, tol)
     end    
     X = idct(Xt,[],3);
     duracion = toc;
+    iteraciones = lista;
+    err_jac = errores;
 end
