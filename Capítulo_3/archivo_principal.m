@@ -17,6 +17,10 @@ clc; clear; close all
 format short
 %% Ejemplo de producto tensorial empleando distintas transformaciones
 
+disp("Tensores A y B")
+
+
+
 A(:,:,1) = [-5  0;
             -8 -3];
 
@@ -35,7 +39,14 @@ B(:,:,2) = [ 0 -4;
 
 B(:,:,3) = [ 3  4;
              1 -8];
+
+disp(" ")
+
+disp(" ")
+
 %% Producto tensorial mediante el t-producto
+
+disp("Cálculo del producto tensorial mediante el t-producto")
 
 % Se aplica la DCT en la tercera dimensión de A y B.
 At = fft(A,[],3)
@@ -50,7 +61,13 @@ Ct(:,:,3) = Ct3;
 % Se aplica la forma inversa de DFT a Ct
 C_T = ifft(Ct,[],3)
 
-%% Producto tensorial mediante el c-producto 
+disp(" ")
+
+disp(" ")
+
+%% Producto tensorial mediante el c-producto
+
+disp("Cálculo tensorial mediante el c-producto")
 
 % Se aplica la DCT en la tercera dimensión de A y B.
 Ac = dct_Full(A)
@@ -65,7 +82,13 @@ Cc(:,:,3) = Cc3;
 % Se aplica la forma inversa de DCT a Cc
 C_C = idct_Full(Cc)
 
+disp(" ")
+
+disp(" ")
+
 %% Producto tensorial mediante el c-producto reducido
+
+disp("Cálculo tensorial mediante el c-producto reducido")
 
 % Se aplica la DCT en la tercera dimensión de A y B.
 Ar = dct(A,[],3)
