@@ -1,20 +1,18 @@
 # Código MATLAB para los Experimentos Numéricos de la Tesis de Maestría "*Un enfoque alternativo para la aproximación de la pseudoinversa tensorial y su aplicación en el procesamiento de imágenes y videos*" 
 
-## Descripción
-
-### Autor
+## Autor
 Samuel Valverde-Sánchez - correo electrónico: [samuel.valverde@ucr.ac.cr](mailto:samuel.valverde@ucr.ac.cr) / [savalverde@itcr.ac.cr](mailto:savalverde@itcr.ac.cr)
 
 Samuel Valverde-Sánchez es profesor instructor en el *Instituto Tecnológico de Costa Rica* [Instituto Tecnológico de Costa Rica](https://www.tec.ac.cr/) y estudiante de la maestría en Métodos Matemáticos y Aplicaciones en la *Universidad de Costa Rica* [Universidad de Costa Rica](https://www.ucr.ac.cr/).
 
-### Comité asesor
+## Comité asesor
 Dr. Juan Pablo Soto Quirós [jusoto@itcr.ac.cr](mailto:jusoto@itcr.ac.cr) - Profesor Asesor jfallas@itcr.ac.cr
 
 M.Sc. Juan José Fallas Monge [jfallas@itcr.ac.cr](mailto:jfallas@itcr.ac.cr) - Profesor lector
 
 Dr. Esteban Segura Ugalde [ESTEBAN.SEGURAUGALDE@ucr.ac.cr](mailto:ESTEBAN.SEGURAUGALDE@ucr.ac.cr) - Profesor lector
 
-## Experimentos
+## Descripción
 Este repositorio contiene el código en MATLAB correspondiente a los experimentos numéricos de la tesis de maestría *"Un enfoque alternativo para la aproximación de la pseudoinversa tensorial y su aplicación en el procesamiento de imágenes y videos"*.
 
 - La tesis propone una alternativa para estimar la pseudoinversa de un tensor bajo el c-producto reducido como operación de multiplicación de tensores. El repositorio está organizado en cuatro carpetas que incluyen los experimentos numéricos de los capítulos 2, 4, 5 y 6.
