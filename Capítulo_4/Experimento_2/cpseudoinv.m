@@ -11,6 +11,8 @@ function [duracion, pseudoinversa, iteraciones, errores_c] = cpseudoinv(A,iterMa
 
 % Salidas: tiempo de ejecución (duración)
 %          Estimación de la pseudoinversa tensorial (pseudoinversa)
+%          Número de iteraciones (iteraciones)
+%          Lista de errores generada en la ejecución del algoritmo.
 
     tic;
     [~, m, p] = size(A);

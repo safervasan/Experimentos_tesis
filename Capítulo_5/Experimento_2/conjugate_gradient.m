@@ -15,6 +15,8 @@ function [X,Y,duracion, error_cong, it_cong] = conjugate_gradient(A, MaxIter,tol
 % Salidas: X de tamaño n x m x p
 %          Y de tamaño m x n x p
 %          Tiempo de ejecución (duración)
+%          Lista de errores por iteración.
+%          Lista de iteraciones.
 
 %Función implementada por Samuel Valverde Sánchez
 

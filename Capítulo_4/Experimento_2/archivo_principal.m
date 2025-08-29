@@ -105,6 +105,10 @@ format long
 tabla = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp(tabla)
 
+disp(' ')
+
+disp(' ')
+
 %% Estimación de la solución del sistema multilineal (Caso 2)
 
 format short
@@ -194,6 +198,10 @@ filas1 = {'Errores', 'Duración', 'Memoria'};
 format long
 tabla = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp(tabla)
+
+disp(' ')
+
+disp(' ')
 
 %% Estimación de la solución del sistema multilineal (Caso 3)
 

@@ -14,6 +14,8 @@ function [X, duracion, iteraciones, errores_gaus] = Gauss_Seidel1(A, B, k, tol)
 
 % Salidas: tensor X de tamaño m x 1 x p
 %          Tiempo de ejecución (duración)
+%          Lista de iteraciones.
+%          Lista de errores generados en la ejecución de la función.
 
 % Función implementada por Samuel Valverde Sánchez
 

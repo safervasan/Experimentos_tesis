@@ -62,6 +62,10 @@ title('Gráfica de iteraciones y errores (tensor A1 tamaño 200x300x20)')
 legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
 hold off
 
+disp(' ')
+
+disp(' ')
+
 %% Estimación de la pseudoinversa tensorial para A2 de tamaño 400x200x20
 
 % Parámetros iniciales
@@ -109,6 +113,10 @@ title('Gráfica de iteraciones y errores (tensor A2 tamaño 400x200x20)')
 legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
 hold off
 
+disp(' ')
+
+disp(' ')
+
 %% Estimación de la pseudoinversa tensorial para A3 de tamaño 500x300x20
 
 % Parámetros iniciales
@@ -155,6 +163,10 @@ set(gca,'fontsize',12)
 title('Gráfica de iteraciones y errores (tensor A3 tamaño 500x300x20)')
 legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
 hold off
+
+disp(' ')
+
+disp(' ')
 
 %% Estimación de la pseudoinversa tensorial para A4 de tamaño 400x800x20
 

@@ -13,6 +13,9 @@ function [pseudoinversa, duracion, error_tp, it_soto] = tpseudo(A,s,iterMax,tol)
 
 % Salidas: tiempo de ejecución (duración)
 %          Estimación de la inversa tensorial (pseudoinversa)
+%          Lista de errores generados por iteración
+%          Lista de iteraciones generadas.
+
 
     tic;
     [m,n,~] = size(A);

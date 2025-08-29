@@ -14,6 +14,8 @@ function [X, duracion, iteraciones, err_jac] = Jacobi(A, B, k, tol)
 
 % Salidas: tensor X de tamaño m x 1 x p
 %          Tiempo de ejecución (duración)
+%          Lista de iteraciones
+%          Lista de errores generados por la función.
 
 % Función implementada por Samuel Valverde Sánchez
 

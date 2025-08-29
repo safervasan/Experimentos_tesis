@@ -10,6 +10,9 @@ function [pseudo, duracion, er_cp, it_cp] = cpseudoinv(A,iterMax,s,tol)
 
 % Salidas: duración en la estimación de la pseudoinversa (duración)
 %          pseudoinversa de tamaño n x m x p
+%          Lista de errores generada por iteración
+%          Lista de iteraciones.
+
 
     tic;
     Ac = c_traspuesta(A);

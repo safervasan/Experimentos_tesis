@@ -55,7 +55,7 @@ disp(' ')
 % Tabla resumen de tiempos de ejecución
 duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
+col1  = {'NS', 'CB', 'LL', 'KR', 'HIP'};
 filas1 = {'Duración'};
 
 format short
@@ -127,7 +127,7 @@ disp(' ')
 % Tabla resumen de tiempos de ejecución
 duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
+col1  = {'NS', 'CB', 'LL', 'KR', 'HIP'};
 filas1 = {'Duración'};
 
 format short
@@ -199,7 +199,7 @@ disp(' ')
 % Tabla resumen de tiempos de ejecución
 duracion1 = [EndS, EndC, EndL, EndK, EndH];
 
-col1  = {'Schulz', 'Chebyshev', 'Li y Li', 'Kaur', 'Hiperpotencias'};
+col1  = {'NS', 'CB', 'LL', 'KR', 'HIP'};
 filas1 = {'Duración'};
 
 format short

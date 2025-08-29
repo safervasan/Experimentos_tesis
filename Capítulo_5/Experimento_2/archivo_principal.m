@@ -88,6 +88,10 @@ format short
 tabla1 = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp (tabla1)
 
+disp(' ')
+
+disp(' ')
+
 %% Estimación de la pseudoinversa tensorial para A2 de tamaño 600x100x15
 
 % Parámetros iniciales
@@ -156,6 +160,10 @@ filas1 = {'Errores', 'Duración', 'Memoria'};
 format short
 tabla2 = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp(tabla2)
+
+disp(' ')
+
+disp(' ')
 
 %% Estimación de la pseudoinversa tensorial para A3 de tamaño 300x400x15
 
@@ -227,6 +235,10 @@ format short
 tabla3 = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp(tabla3)
 
+disp(' ')
+
+disp(' ')
+
 %% Estimación de la pseudoinversa tensorial para A4 de tamaño 325x300x15
 
 % Parámetros iniciales
@@ -295,6 +307,10 @@ filas1 = {'Errores', 'Duración', 'Memoria'};
 format short
 tabla4 = array2table([errores1;duracion1;memoria1],'VariableNames',col1,'RowNames',filas1);
 disp(tabla4)
+
+disp(' ')
+
+disp(' ')
 
 
 %% Estimación de la pseudoinversa tensorial para A5 de tamaño 190x200x15

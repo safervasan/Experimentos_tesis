@@ -14,6 +14,8 @@ function [duracion, inversa, iteraciones, error_soto] = Soto2023(A,iterMax,s,tol
 
 % Salidas: tiempo de ejecución (duración)
 %          Estimación de la inversa tensorial (inversa)
+%          Número de iteraciones realizadas (iteraciones)
+%          Sucesión de errores asociada a cada iteración.
 
 % Función adaptada por Samuel Valverde Sánchez
 
