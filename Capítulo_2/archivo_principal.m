@@ -65,6 +65,10 @@ tabla_tiempos = array2table(duracion1, ...
 
 disp(tabla_tiempos)
 
+disp(' ')
+
+disp(' ')
+
 % Graficación de errores e iteraciones
 figure(1)
 plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
@@ -132,6 +136,10 @@ tabla_tiempos = array2table(duracion1, ...
                             'RowNames',    filas1);
 
 disp(tabla_tiempos)
+
+disp(' ')
+
+disp(' ')
 
 % Graficación de errores e iteraciones
 figure(2)

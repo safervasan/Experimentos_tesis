@@ -5,8 +5,8 @@ function [lista1, errores1, pseudoinversa] = kaur(A,m, tol)
 %de kaur.
 
 % Referencia = M. Kaur, M. Kansal y S. Kumar, An efficient hyperpower iterative method for computing
-%weighted MoorePenrose inverse, AIMS Mathematics, vol. 5, no. 3, pp. 1680-
-%1692, 2020.
+%              weighted MoorePenrose inverse, AIMS Mathematics, vol. 5, no. 3, pp. 1680-
+%              1692, 2020.
 
 %Entradas: Matriz A
 %          Número de filas de A (m).

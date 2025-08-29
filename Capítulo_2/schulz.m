@@ -5,8 +5,8 @@ function [lista1, errores1, pseudoinversa] = schulz(A,m, tol)
 %de Schulz
 
 % Referencia = G. Schulz, Iterative berechung der reziproken matrix, ZAMM-Journal of Applied
-%Mathematics and Mechanics/Zeitschrift für Angewandte Mathematik und Mechanik,
-%vol. 13, no. 1, pp. 57-59, 1933.
+%              Mathematics and Mechanics/Zeitschrift für Angewandte Mathematik und Mechanik,
+%              vol. 13, no. 1, pp. 57-59, 1933.
 
 %Entradas: Matriz A
 %          Número de filas de A (m).

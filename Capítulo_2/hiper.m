@@ -5,8 +5,8 @@ function [lista1, errores1, pseudoinversa] = hiper(A,m, tol)
 %de hiperpotencias.
 
 % Referencia = M. D. Petković, P. S. Stanimirović y V. N. Katsikis, Modified discrete iterations for
-%computing the inverse and pseudoinverse of the time-varying matrix, Neurocomputing,
-%vol. 289, pp. 155-165, 2018.
+%              computing the inverse and pseudoinverse of the time-varying matrix, Neurocomputing,
+%              vol. 289, pp. 155-165, 2018.
 
 %Entradas: Matriz A
 %          Número de filas de A (m).
