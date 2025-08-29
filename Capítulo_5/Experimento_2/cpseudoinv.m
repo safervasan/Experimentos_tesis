@@ -1,5 +1,5 @@
 
-function [duracion, pseudoinversa, er_cp, it_cp] = cpseudoinv(A,iterMax,s,tol)
+function [pseudo, duracion, er_cp, it_cp] = cpseudoinv(A,iterMax,s,tol)
 
 %Esta función estima la pseudoinversa de un tensor de tercer orden, el número de iteraciones y la duración en la ejecución
 
@@ -18,16 +18,15 @@ function [duracion, pseudoinversa, er_cp, it_cp] = cpseudoinv(A,iterMax,s,tol)
     error = [];
     lista = [];
     for k = 1:iterMax
-        lista(k) = k;
+        lista = [lista,k];
         X = formula_iterativa(X,A,s);
-        er = c_norma2(cprod(cprod(A,X),A)-A);
-        error(k) = er;
-        if er < tol
+        error = [error,c_norma2(cprod(cprod(A,X),A)-A)];
+        if c_norma2(cprod(cprod(A,X),A)-A) < tol
             break
         end
     end    
-    pseudoinversa = X;
     duracion = toc;
     er_cp = error;
     it_cp = lista;
+    pseudo = X;
 end

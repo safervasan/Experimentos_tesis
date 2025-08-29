@@ -22,9 +22,14 @@ m = 150;
 n = 450;
 p = 100;
 A = randn(m,n,p);
-tol = 1e-12;
+tol = 1e-10;
 MaxIter = 1000;
 s = 10;
+
+%Variables definidas si  el método outerinv falla
+pseudo_out = NaN;
+dur_out = NaN;
+error_pseudo_out = NaN;
 
 %Estimación pseudoinversa Algoritmo 5
 [dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
@@ -35,26 +40,48 @@ error_pseudo_c = e_cpseudo(end);
 error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+[~, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
 error_pseudo_grad = e_cong(end);
 
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 try
-    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-
-    % Verificar que realmente devolvió algo numérico
-    if isnumeric(pseudo_out) && isnumeric(dur_out)
-        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    [pseudo_tmp, dur_tmp] = outerinv(c_traspuesta(A));
+    pseudo_out = c_traspuesta(pseudo_tmp);
+    dur_out    = dur_tmp;
+    error_pseudo_out = error_pseudoinversa_c(A, pseudo_out);
+catch ME
+    if strcmp(ME.identifier, 'MATLAB:nomem')
+        warning('outerinv no pudo ejecutarse por falta de memoria.');
     else
-        dur_out = NaN;
-        error_pseudo_out = NaN;
+        warning('outerinv falló por otro motivo (%s): %s.', ...
+                ME.identifier, ME.message);
     end
+end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
 error_pseudo_tpinv = error_pseudoinversa_t(A,pseudo_tpinv);
-
 
 texto = ['Errores mínimos y duración al estimar la pseudoinversa del tensor de tamaño ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
 disp(texto)
@@ -78,6 +105,11 @@ n = 450;
 p = 200;
 A = randn(m,n,p);
 
+%Variables definidas si  el método outerinv falla
+pseudo_out = NaN;
+dur_out = NaN;
+error_pseudo_out = NaN;
+
 %Estimación pseudoinversa Algoritmo 5
 [dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
@@ -87,20 +119,45 @@ error_pseudo_c = e_cpseudo(end);
 error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+[~, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
 error_pseudo_grad = e_cong(end);
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 try
-    [pseudo_out, dur_out] = outerinv(A);
+    [pseudo_tmp, dur_tmp] = outerinv(c_traspuesta(A));
+    pseudo_out = c_traspuesta(pseudo_tmp);
+    dur_out    = dur_tmp;
+    error_pseudo_out = error_pseudoinversa_c(A, pseudo_out);
 
-    % Verificar que realmente devolvió algo numérico
-    if isnumeric(pseudo_out) && isnumeric(dur_out)
-        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+catch ME
+    if strcmp(ME.identifier, 'MATLAB:nomem')
+        warning('outerinv no pudo ejecutarse por falta de memoria.');
     else
-        dur_out = NaN;
-        error_pseudo_out = NaN;
+        warning('outerinv falló por otro motivo (%s): %s.', ...
+                ME.identifier, ME.message);
     end
+end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -128,6 +185,11 @@ n = 450;
 p = 300;
 A = randn(m,n,p);
 
+%Variables definidas si  el método outerinv falla
+pseudo_out = NaN;
+dur_out = NaN;
+error_pseudo_out = NaN;
+
 %Estimación pseudoinversa Algoritmo 5
 [dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
@@ -137,20 +199,45 @@ error_pseudo_c = e_cpseudo(end);
 error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+[~, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
 error_pseudo_grad = e_cong(end);
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 try
-    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-
-    % Verificar que realmente devolvió algo numérico
-    if isnumeric(pseudo_out) && isnumeric(dur_out)
-        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    [pseudo_tmp, dur_tmp] = outerinv(c_traspuesta(A));
+    pseudo_out = c_traspuesta(pseudo_tmp);
+    dur_out    = dur_tmp;
+    error_pseudo_out = error_pseudoinversa_c(A, pseudo_out);
+catch ME
+    % Detectar error de memoria específicamente
+    if strcmp(ME.identifier, 'MATLAB:nomem')
+        warning('outerinv no pudo ejecutarse por falta de memoria.');
     else
-        dur_out = NaN;
-        error_pseudo_out = NaN;
+        warning('outerinv falló por otro motivo (%s): %s.', ...
+                ME.identifier, ME.message);
     end
+end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -178,6 +265,11 @@ n = 450;
 p = 400;
 A = randn(m,n,p);
 
+%Variables definidas si  el método outerinv falla
+pseudo_out = NaN;
+dur_out = NaN;
+error_pseudo_out = NaN;
+
 %Estimación pseudoinversa Algoritmo 5
 [dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
@@ -187,20 +279,46 @@ error_pseudo_c = e_cpseudo(end);
 error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+[~, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
 error_pseudo_grad = e_cong(end);
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 try
-    [pseudo_out, dur_out] = outerinv(A);
+    [pseudo_tmp, dur_tmp] = outerinv(c_traspuesta(A));
+    pseudo_out = c_traspuesta(pseudo_tmp);
+    dur_out    = dur_tmp;
+    error_pseudo_out = error_pseudoinversa_c(A, pseudo_out);
 
-    % Verificar que realmente devolvió algo numérico
-    if isnumeric(pseudo_out) && isnumeric(dur_out)
-        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+catch ME
+    % Detectar error de memoria específicamente
+    if strcmp(ME.identifier, 'MATLAB:nomem')
+        warning('outerinv no pudo ejecutarse por falta de memoria.');
     else
-        dur_out = NaN;
-        error_pseudo_out = NaN;
+        warning('outerinv falló por otro motivo (%s): %s.', ...
+                ME.identifier, ME.message);
     end
+end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);
@@ -229,6 +347,11 @@ n = 450;
 p = 500;
 A = randn(m,n,p);
 
+%Variables definidas si  el método outerinv falla
+pseudo_out = NaN;
+dur_out = NaN;
+error_pseudo_out = NaN;
+
 %Estimación pseudoinversa Algoritmo 5
 [dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
@@ -238,20 +361,45 @@ error_pseudo_c = e_cpseudo(end);
 error_pseudo_soto = e_tpseudo(end);
 
 %Estimación de la inversa método de Gradiente conjugado
-[pseudo_grad, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
+[~, ~, dur_grad, e_cong, it_cong] = conjugate_gradient(A,MaxIter,tol);
 error_pseudo_grad = e_cong(end);
+
+texto3 = ['Iteraciones y errores finales al estimar la pseudoinversa ', num2str(m), ' x ', num2str(n), ' x ', num2str(p)];
+disp(texto3)
+
+disp(' ')
+
+% Tomar el último error (de los vectores e_)
+errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
+
+% Tomar la última iteración
+iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
+
+% Encabezados de la tabla
+col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+filas3 = {'Error final', 'Iteraciones'};
+
+% Crear tabla
+tabla3 = array2table([errores_finales_pseudo; iteraciones_finales_pseudo], ...
+    'VariableNames', col3, 'RowNames', filas3);
+
+disp(tabla3)
 
 %Estimación de la inversa método outerinv
 try
-    [pseudo_out, dur_out] = outerinv(c_traspuesta(A));
-
-    % Verificar que realmente devolvió algo numérico
-    if isnumeric(pseudo_out) && isnumeric(dur_out)
-        error_pseudo_out = error_pseudoinversa_c(A,pseudo_out);
+    [pseudo_tmp, dur_tmp] = outerinv(c_traspuesta(A));
+    pseudo_out = c_traspuesta(pseudo_tmp);
+    dur_out    = dur_tmp;
+    error_pseudo_out = error_pseudoinversa_c(A, pseudo_out);
+catch ME
+    % Detectar error de memoria específicamente
+    if strcmp(ME.identifier, 'MATLAB:nomem')
+        warning('outerinv no pudo ejecutarse por falta de memoria.');
     else
-        dur_out = NaN;
-        error_pseudo_out = NaN;
+        warning('outerinv falló por otro motivo (%s): %s.', ...
+                ME.identifier, ME.message);
     end
+end
 
 %Estimación de la inversa método pinv
 [dur_pinv, pseudo_tpinv] = tpinv(A);

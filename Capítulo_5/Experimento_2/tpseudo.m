@@ -1,5 +1,5 @@
 
-function [duracion, pseudoinversa, error_tp, it_soto] = tpseudo(A,s,iterMax,tol)
+function [pseudoinversa, duracion, error_tp, it_soto] = tpseudo(A,s,iterMax,tol)
 
 % Esta función permite estimar la inversa de un tensor
 % Referencias: P. Soto, Convergence analysis of iterative methods for computing the T-pseudoinverse

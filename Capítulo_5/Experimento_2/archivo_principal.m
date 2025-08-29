@@ -22,17 +22,17 @@ m = 250;
 n = 500;
 p = 15;
 A = randn(m,n,p);
-tol = 1e-12;
+tol = 10^(-10);
 MaxIter = 1000;
 s = 10;
 
 %Estimación pseudoinversa Algoritmo 5
-[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+[pseudo_c, dur_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+[pseudo_soto, dur_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
 error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
@@ -97,12 +97,12 @@ p = 15;
 A = randn(m,n,p);
 
 %Estimación pseudoinversa Algoritmo 5
-[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+[pseudo_c, dur_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+[pseudo_soto, dur_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
 error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
@@ -166,12 +166,12 @@ p = 15;
 A = randn(m,n,p);
 
 %Estimación pseudoinversa Algoritmo 5
-[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+[pseudo_c, dur_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+[pseudo_soto, dur_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
 error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
@@ -236,12 +236,12 @@ p = 15;
 A = randn(m,n,p);
 
 %Estimación pseudoinversa Algoritmo 5
-[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+[pseudo_c, dur_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+[pseudo_soto, dur_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
 error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
@@ -306,12 +306,12 @@ p = 15;
 A = randn(m,n,p);
 
 %Estimación pseudoinversa Algoritmo 5
-[dur_c,pseudo_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
+[pseudo_c, dur_c,e_cpseudo, it_cpseudo] = cpseudoinv(A,MaxIter,s,tol);
 error_pseudo_c = e_cpseudo(end);
 info_pseudo_c = whos("pseudo_c");
 
 %Iteraciones, errores y tiempos para diferentes valores de s por Soto(2023)
-[dur_soto,pseudo_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
+[pseudo_soto, dur_soto,e_tpseudo, it_tpseudo] = tpseudo(A,s,MaxIter,tol);
 error_pseudo_soto = e_tpseudo(end);
 info_pseudo_soto = whos("pseudo_soto");
 
