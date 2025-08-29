@@ -122,13 +122,13 @@ SSIM_conjugate = SSIM(A,A_rec2);
 error_conjugate = (1/(m*n*p))*tFrobNorm(A-A_rec2)^2;
 subplot(5,3,13)
 imshow(A_rec2(:, :, 1)); % Imagen 1 reconstruida con conjugate gradient
-title('Imagen 1 reconstruida con conjugate gradient');
+title('Imagen 1 reconstruida con CGT');
 subplot(5,3,14)
 imshow(A_rec2(:, :, 77)); % Imagen 77 reconstruida con conjugate gradient
-title('Imagen 77 reconstruida con conjugate gradient');
+title('Imagen 77 reconstruida con CGT');
 subplot(5,3,15)
 imshow(A_rec2(:, :, 154)); % Imagen 154 reconstruida con conjugate gradient
-title('Imagen 154 reconstruida con conjugate gradient');
+title('Imagen 154 reconstruida con CGT');
 
 disp(' ')
 
@@ -143,7 +143,7 @@ disp(' ')
 tiempos   = [Alg_4_toc,    IT_toc,    conj_toc];
 ssim_vals = [SSIM_alg_4,   SSIM_IT,   SSIM_conjugate];
 errores   = [error_alg_4,  errorIT,   error_conjugate];
-cols = {'Algoritmo 5','IT_Soto','GradienteConj'};
+cols = {'Algoritmo 5','IT','CGT'};
 rows = {'Tiempo_s','SSIM','Error_medio'};
 format short
 tabla = array2table([tiempos; ssim_vals; errores], ...

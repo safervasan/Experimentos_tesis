@@ -55,7 +55,7 @@ errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
 iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
 
 % Encabezados de la tabla
-col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+col3 = {'Alg 5', 'IT', 'CGT'};
 filas3 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
@@ -138,7 +138,7 @@ errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
 iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
 
 % Encabezados de la tabla
-col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+col3 = {'Alg 5', 'IT', 'CGT'};
 filas3 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
@@ -222,7 +222,7 @@ errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
 iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
 
 % Encabezados de la tabla
-col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+col3 = {'Alg 5', 'IT', 'CGT'};
 filas3 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
@@ -306,7 +306,7 @@ errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
 iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
 
 % Encabezados de la tabla
-col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+col3 = {'Alg 5', 'IT', 'CGT'};
 filas3 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
@@ -392,7 +392,7 @@ errores_finales_pseudo = [e_cpseudo(end), e_tpseudo(end), e_cong(end)];
 iteraciones_finales_pseudo = [it_cpseudo(end), it_tpseudo(end), it_cong(end)];
 
 % Encabezados de la tabla
-col3 = {'Alg 5', 'Soto (2023)', 'Grad Conj'};
+col3 = {'Alg 5', 'IT', 'CGT'};
 filas3 = {'Error final', 'Iteraciones'};
 
 % Crear tabla

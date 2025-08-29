@@ -79,8 +79,8 @@ errores_finales = [e_soto(end), e_cp(end), e_jac(end), e_gaus(end), e_cong(end)]
 iteraciones_finales = [it_soto(end), it_cp(end), it_jacobi(end), it_gaus(end), iter_cong(end)];
 
 % Encabezados de la tabla
-col2 = {'Soto (2023)', 'c-prod red', 'Jacobi', 'Gauss-Seidel', 'Grad Conj'};
-filas2 = {'Error final (e)', 'Iteraciones'};
+col2 = {'IT', 'Alg 4', 'HOJ', 'HOG', 'CGT'};
+filas2 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
 tabla2 = array2table([errores_finales; iteraciones_finales], ...
@@ -173,8 +173,8 @@ errores_finales = [e_soto(end), e_cp(end), e_jac(end), e_gaus(end), e_cong(end)]
 iteraciones_finales = [it_soto(end), it_cp(end), it_jacobi(end), it_gaus(end), iter_cong(end)];
 
 % Encabezados de la tabla
-col2 = {'Soto (2023)', 'c-prod red', 'Jacobi', 'Gauss-Seidel', 'Grad Conj'};
-filas2 = {'Error final (e)', 'Iteraciones'};
+col2 = {'IT', 'Alg 4', 'HOJ', 'HOG', 'CGT'};
+filas2 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
 tabla2 = array2table([errores_finales; iteraciones_finales], ...
@@ -267,8 +267,8 @@ errores_finales = [e_soto(end), e_cp(end), e_jac(end), e_gaus(end), e_cong(end)]
 iteraciones_finales = [it_soto(end), it_cp(end), it_jacobi(end), it_gaus(end), iter_cong(end)];
 
 % Encabezados de la tabla
-col2 = {'Soto (2023)', 'c-prod red', 'Jacobi', 'Gauss-Seidel', 'Grad Conj'};
-filas2 = {'Error final (e)', 'Iteraciones'};
+col2 = {'IT', 'Alg 4', 'HOJ', 'HOG', 'CGT'};
+filas2 = {'Error final', 'Iteraciones'};
 
 % Crear tabla
 tabla2 = array2table([errores_finales; iteraciones_finales], ...
