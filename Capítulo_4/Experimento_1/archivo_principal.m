@@ -48,18 +48,19 @@ disp(tabla)
 
 %Graficación de errores e iteraciones.
 figure(1)
-plot(iteraciones2,errores2,'*-r','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones2, errores2, '*-r', 'LineWidth', 2, 'MarkerSize', 6)
 hold on
-plot(iteraciones3,errores3,'*-g','LineWidth',2,'MarkerSize',6)
-plot(iteraciones4,errores4,'*-b','LineWidth',2,'MarkerSize',6)
-plot(iteraciones5,errores5,'*-c','LineWidth',2,'MarkerSize',6)
-plot(iteraciones8,errores8,'*-m','LineWidth',2,'MarkerSize',6)
-plot(iteraciones10,errores10,'*-y','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones3, errores3, '*-g', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones4, errores4, '*-b', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones5, errores5, '*-c', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones8, errores8, '*-m', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones10, errores10, '*-y', 'LineWidth', 2, 'MarkerSize', 6)
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala logarítmica)')
+set(gca, 'fontsize', 12)
 title('Gráfica de iteraciones y errores (tensor A1 tamaño 100x100x20)')
-legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
+legend('s=2', 's=3','s=4','s=5','s=8','s=10', 'Location', 'northeast')
+grid on
 hold off
 
 disp(' ')
@@ -99,18 +100,19 @@ disp(tabla)
 
 %Graficación de errores e iteraciones.
 figure(2)
-plot(iteraciones2,errores2,'*-r','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones2, errores2, '*-r', 'LineWidth', 2, 'MarkerSize', 6)
 hold on
-plot(iteraciones3,errores3,'*-g','LineWidth',2,'MarkerSize',6)
-plot(iteraciones4,errores4,'*-b','LineWidth',2,'MarkerSize',6)
-plot(iteraciones5,errores5,'*-c','LineWidth',2,'MarkerSize',6)
-plot(iteraciones8,errores8,'*-m','LineWidth',2,'MarkerSize',6)
-plot(iteraciones10,errores10,'*-y','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones3, errores3, '*-g', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones4, errores4, '*-b', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones5, errores5, '*-c', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones8, errores8, '*-m', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones10, errores10, '*-y', 'LineWidth', 2, 'MarkerSize', 6)
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala logarítmica)')
+set(gca, 'fontsize', 12)
 title('Gráfica de iteraciones y errores (tensor A2 tamaño 200x200x20)')
-legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
+legend('s=2', 's=3','s=4','s=5','s=8','s=10', 'Location', 'northeast')
+grid on
 hold off
 
 disp(' ')
@@ -150,18 +152,19 @@ disp(tabla)
 
 %Graficación de errores e iteraciones.
 figure(3)
-plot(iteraciones2,errores2,'*-r','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones2, errores2, '*-r', 'LineWidth', 2, 'MarkerSize', 6)
 hold on
-plot(iteraciones3,errores3,'*-g','LineWidth',2,'MarkerSize',6)
-plot(iteraciones4,errores4,'*-b','LineWidth',2,'MarkerSize',6)
-plot(iteraciones5,errores5,'*-c','LineWidth',2,'MarkerSize',6)
-plot(iteraciones8,errores8,'*-m','LineWidth',2,'MarkerSize',6)
-plot(iteraciones10,errores10,'*-y','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones3, errores3, '*-g', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones4, errores4, '*-b', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones5, errores5, '*-c', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones8, errores8, '*-m', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones10, errores10, '*-y', 'LineWidth', 2, 'MarkerSize', 6)
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala logarítmica)')
+set(gca, 'fontsize', 12)
 title('Gráfica de iteraciones y errores (tensor A3 tamaño 400x400x20)')
-legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
+legend('s=2', 's=3','s=4','s=5','s=8','s=10', 'Location', 'northeast')
+grid on
 hold off
 
 disp(' ')
@@ -201,16 +204,17 @@ disp(tabla)
 
 %Graficación de errores e iteraciones.
 figure(4)
-plot(iteraciones2,errores2,'*-r','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones2, errores2, '*-r', 'LineWidth', 2, 'MarkerSize', 6)
 hold on
-plot(iteraciones3,errores3,'*-g','LineWidth',2,'MarkerSize',6)
-plot(iteraciones4,errores4,'*-b','LineWidth',2,'MarkerSize',6)
-plot(iteraciones5,errores5,'*-c','LineWidth',2,'MarkerSize',6)
-plot(iteraciones8,errores8,'*-m','LineWidth',2,'MarkerSize',6)
-plot(iteraciones10,errores10,'*-y','LineWidth',2,'MarkerSize',6)
+semilogy(iteraciones3, errores3, '*-g', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones4, errores4, '*-b', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones5, errores5, '*-c', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones8, errores8, '*-m', 'LineWidth', 2, 'MarkerSize', 6)
+semilogy(iteraciones10, errores10, '*-y', 'LineWidth', 2, 'MarkerSize', 6)
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala logarítmica)')
+set(gca, 'fontsize', 12)
 title('Gráfica de iteraciones y errores (tensor A4 tamaño 800x800x20)')
-legend('s=2', 's=3','s=4','s=5','s=8','s=10','Location', 'northeast')
+legend('s=2', 's=3','s=4','s=5','s=8','s=10', 'Location', 'northeast')
+grid on
 hold off

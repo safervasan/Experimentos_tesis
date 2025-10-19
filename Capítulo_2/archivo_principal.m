@@ -71,18 +71,17 @@ disp(' ')
 
 % Graficación de errores e iteraciones
 figure(1)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
+semilogy(lschulz, eschulz, '*-g', 'LineWidth', 2, 'MarkerSize', 6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
-plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
-
+semilogy(lchev, echev, '*-b', 'LineWidth', 2, 'MarkerSize', 6)       % CB
+semilogy(lli, eli, '*-m', 'LineWidth', 2, 'MarkerSize', 6)           % LL
+semilogy(lkaur, ekaur, '*-r', 'LineWidth', 2, 'MarkerSize', 6)       % KR
+semilogy(lhiper, ehiper, '*-k', 'LineWidth', 2, 'MarkerSize', 6)     % HIP
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala log_{10})')
+set(gca,'FontSize',12)
 title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
-legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+legend('NS','CB','LL','KR','HIP','Location','northeast')
 grid on
 hold off
 
@@ -143,18 +142,17 @@ disp(' ')
 
 % Graficación de errores e iteraciones
 figure(2)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
+semilogy(lschulz, eschulz, '*-g', 'LineWidth', 2, 'MarkerSize', 6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
-plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
-
+semilogy(lchev, echev, '*-b', 'LineWidth', 2, 'MarkerSize', 6)       % CB
+semilogy(lli, eli, '*-m', 'LineWidth', 2, 'MarkerSize', 6)           % LL
+semilogy(lkaur, ekaur, '*-r', 'LineWidth', 2, 'MarkerSize', 6)       % KR
+semilogy(lhiper, ehiper, '*-k', 'LineWidth', 2, 'MarkerSize', 6)     % HIP
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala log_{10})')
+set(gca,'FontSize',12)
 title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
-legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+legend('NS','CB','LL','KR','HIP','Location','northeast')
 grid on
 hold off
 
@@ -211,17 +209,16 @@ disp(tabla_tiempos)
 
 % Graficación de errores e iteraciones
 figure(3)
-plot(lschulz,eschulz,'*-g','LineWidth',2,'MarkerSize',6)   % NS
+semilogy(lschulz, eschulz, '*-g', 'LineWidth', 2, 'MarkerSize', 6)   % NS
 hold on
-plot(lchev,echev,'*-b','LineWidth',2,'MarkerSize',6)       % CB
-plot(lli,eli,'*-m','LineWidth',2,'MarkerSize',6)           % LL
-plot(lkaur,ekaur,'*-r','LineWidth',2,'MarkerSize',6)       % KR
-plot(lhiper,ehiper,'*-k','LineWidth',2,'MarkerSize',6)     % HIP
-
+semilogy(lchev, echev, '*-b', 'LineWidth', 2, 'MarkerSize', 6)       % CB
+semilogy(lli, eli, '*-m', 'LineWidth', 2, 'MarkerSize', 6)           % LL
+semilogy(lkaur, ekaur, '*-r', 'LineWidth', 2, 'MarkerSize', 6)       % KR
+semilogy(lhiper, ehiper, '*-k', 'LineWidth', 2, 'MarkerSize', 6)     % HIP
 xlabel('Iteraciones')
-ylabel('Errores')
-set(gca,'fontsize',12)
+ylabel('Errores (escala log_{10})')
+set(gca,'FontSize',12)
 title(['Gráfica de iteraciones y errores (matriz A tamaño ' num2str(m) 'x' num2str(n) ')'])
-legend('NS', 'CB', 'LL', 'KR', 'HIP', 'Location', 'northeast')
+legend('NS','CB','LL','KR','HIP','Location','northeast')
 grid on
 hold off
